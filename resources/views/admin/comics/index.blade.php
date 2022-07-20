@@ -22,7 +22,7 @@
                     <td>{{$comic->id}}</td>
                     <td>{{$comic->title}}</td>
                     {{-- <td>{{$comic->description}}</td> --}}
-                    <td>{{$comic->thumb}}</td>
+                    <td><a href="{{$comic->thumb}}">{{$comic->thumb}}</a></td>
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->series}}</td>
                     <td>{{$comic->sale_date}}</td>
@@ -45,6 +45,7 @@
             @endforeach
         </tbody>
     </table>
+    {{$comics->links()}}
 
     <section class="overlay d-none">
         <form class="popup"  data-action="{{route('comics.destroy', ['comic' => '*****' ])}}" method="post">
