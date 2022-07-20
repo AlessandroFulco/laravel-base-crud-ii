@@ -6,7 +6,7 @@
         <thead>
             <th>Id</th>
             <th>Title</th>
-            <th>Description</th>
+            {{-- <th>Description</th> --}}
             <th>Thumb</th>
             <th>Price</th>
             <th>Series</th>
@@ -16,10 +16,12 @@
         </thead>
         <tbody>
             @foreach ($comics as $comic)
-                <tr>
+
+                <tr data-id={{ $comic->id }}>
+
                     <td>{{$comic->id}}</td>
                     <td>{{$comic->title}}</td>
-                    <td>{{$comic->description}}</td>
+                    {{-- <td>{{$comic->description}}</td> --}}
                     <td>{{$comic->thumb}}</td>
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->series}}</td>
@@ -33,15 +35,32 @@
                     </td>
 
                     <td>
-                        <form action="{{route('comics.destroy', ['comic' => $comic]) }}" method="post">
+                        <button class="btn btn-danger js-delete" >Delete</button>
+                        {{-- <form action="{{route('comics.destroy', ['comic' => $comic]) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
+                        </form> --}}
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
+    <section class="overlay d-none">
+        <form class="popup"  data-action="{{route('comics.destroy', ['comic' => '*****' ])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <h1>
+                Sei sicuro?
+            </h1>
+            <button type="submit" class="btn btn-warning js-yes">Yes</button>
+            <button type="button" class="btn btn-danger js-no">No</button>
+        </form>
+    </section>
+
 @endsection
+
+{{-- <form action="{{route('comics.destroy', ['comic' => $comic]) }}" method="post">
+    @csrf
+    @method('DELETE')
+</form> --}}

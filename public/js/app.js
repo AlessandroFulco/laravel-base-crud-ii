@@ -27808,6 +27808,28 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+var deleteButtons = document.querySelectorAll('.js-delete');
+var eleOverlay = document.querySelector('.overlay');
+var formPopup = document.querySelector('.popup');
+
+if (eleOverlay) {
+  // compare il pop up
+  deleteButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      // remove class
+      eleOverlay.classList.remove('d-none'); // accesso callback data in-line
+
+      var id = this.closest('[data-id]').dataset.id;
+      var pattern = formPopup.dataset.action;
+      var newAction = pattern.replace('*****', id);
+      formPopup.action = newAction;
+    });
+  }); // funzione bottone no sompare il pop up
+
+  document.querySelector('.js-no').addEventListener('click', function () {
+    eleOverlay.classList.add('d-none');
+  });
+}
 
 /***/ }),
 

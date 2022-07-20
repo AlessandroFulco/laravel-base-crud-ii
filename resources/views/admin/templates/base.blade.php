@@ -7,7 +7,7 @@
     {{-- stylesheet bs 5.2 --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {{-- script per bs 5.2 --}}
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script defer src="{{ asset('js/app.js') }}"></script>
     <title>Document</title>
 </head>
 <body>
