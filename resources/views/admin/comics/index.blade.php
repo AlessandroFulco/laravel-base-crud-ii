@@ -22,7 +22,7 @@
                     <td>{{$comic->id}}</td>
                     <td>{{$comic->title}}</td>
                     {{-- <td>{{$comic->description}}</td> --}}
-                    <td><a href="{{$comic->thumb}}">{{$comic->thumb}}</a></td>
+                    <td><a href="{{$comic->thumb}}"></a></td>
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->series}}</td>
                     <td>{{$comic->sale_date}}</td>
